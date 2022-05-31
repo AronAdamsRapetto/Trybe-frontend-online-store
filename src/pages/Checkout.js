@@ -61,7 +61,9 @@ class Checkout extends React.Component {
   }
 
   handleClick = () => {
-    this.setState({ isFinished: true });
+    this.setState({ isFinished: true }, () => {
+      localStorage.setItem('produtosCarrinho', JSON.stringify([]));
+    });
   }
 
   render() {

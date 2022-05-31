@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './StyleSheet/FormCheckout.css';
+import UF from '../services/data';
 
 class FormCheckout extends React.Component {
   render() {
@@ -84,7 +85,13 @@ class FormCheckout extends React.Component {
           value={ userInfo.cidade }
           onChange={ handleChange }
         />
-        <select>
+        <select name="estado" value={ userInfo.estado } onChange={ handleChange }>
+          <option value="" disabled selected>Estados</option>
+          {
+            UF.map(({ nome, sigla }) => (
+              <option key={ sigla } value={ nome }>{sigla}</option>
+            ))
+          }
           <option>Estado</option>
         </select>
       </div>
