@@ -75,7 +75,6 @@ class ProductDetails extends React.Component {
               className="link-cart"
             >
               <span>Carrinho de compras</span>
-              {/* LOCAL DO CONTADOR DE ITEMS NO CARRINHO */}
               <span data-testid="shopping-cart-size">{ `${totalCarrinho} >` }</span>
             </Link>
           </div>
@@ -90,6 +89,8 @@ class ProductDetails extends React.Component {
             <h2 data-testid="product-detail-name">{ title }</h2>
             <p>{ `R$ ${price}` }</p>
             <span>{ `Estoque: ${availableQuantity} `}</span>
+            { freeShipping ? (<span data-testid="free-shipping">Frete grátis</span>)
+              : ('') }
             <ul className="container-list-details">
               {
                 atributos.map(({ name, value_name: value, id }) => (
@@ -99,12 +100,13 @@ class ProductDetails extends React.Component {
                 ))
               }
             </ul>
-            { freeShipping ? (<h4 data-testid="free-shipping">Frete grátis</h4>) : ('') }
           </div>
         </section>
-        <section className="container-evaluation">
-          <h1>Avaliações</h1>
-          <EvaluationForm />
+        <section className="section-evaluation">
+          <div className="container-evaluation">
+            <h1>Avaliações</h1>
+            <EvaluationForm />
+          </div>
           {
             totalPrice ? (
               <div className="add-carrinho">

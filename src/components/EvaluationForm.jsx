@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { readSavedEvaluations, saveEvaluation } from './storageEvaluation';
 import PreviousEvaluations from './PreviousEvaluations';
+import './StyleSheet/EvaluationForm.css';
 
 class EvaluationForm extends Component {
   state = {
-    // showPreviousEvaluations: false,
     evaluations: [],
     email: '',
     rating: '',
@@ -15,11 +15,6 @@ class EvaluationForm extends Component {
     const savedEvaluations = readSavedEvaluations();
     this.setState({ evaluations: savedEvaluations });
   }
-
-  // showEvaluations = () => {
-  //   const { showPreviousEvaluations } = this.state;
-  //   this.setState({ showPreviousEvaluations: !showPreviousEvaluations });
-  // };
 
   handleClick = ({ target: { id } }) => {
     this.setState({ rating: id });
@@ -40,33 +35,36 @@ class EvaluationForm extends Component {
   }
 
   render() {
-    const { evaluations, email, message } = this.state;
+    const { evaluations, email, message, rating } = this.state;
     const ratingStars = ['1', '2', '3', '4', '5'];
     return (
-      <div>
-        <input
-          type="email"
-          name="email"
-          value={ email }
-          id="email"
-          data-testid="product-detail-email"
-          placeholder="Email"
-          onChange={ this.handleChange }
-        />
-        {ratingStars.map((value, index) => (
-          <i
-            key={ value }
-            data-testid={ `${value}-rating` }
-            id={ value }
-            onClick={ this.handleClick }
-            onKeyPress={ () => {} }
-            role="link"
-            tabIndex={ index }
-          >
-            &#x02606;
-          </i>
-        ))}
-        <input
+      <div className="container-evaluation-submit">
+        <div className="container-email-rating">
+          <input
+            type="email"
+            name="email"
+            value={ email }
+            id="email"
+            data-testid="product-detail-email"
+            placeholder="Email"
+            onChange={ this.handleChange }
+          />
+          {ratingStars.map((value, index) => (
+            <i
+              key={ value }
+              data-testid={ `${value}-rating` }
+              id={ value }
+              onClick={ this.handleClick }
+              onKeyPress={ () => {} }
+              role="link"
+              tabIndex={ index }
+              className={ rating >= value && 'rating-selected' }
+            >
+              &#x02606;
+            </i>
+          ))}
+        </div>
+        <textarea
           type="text"
           name="message"
           value={ message }

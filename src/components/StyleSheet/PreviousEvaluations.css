@@ -1,0 +1,8 @@
+.evaluation-submited {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+.evaluation-submited p, .evaluation-submited i:nth-of-type( 1 ) {
+  margin-left: 10px;
+}

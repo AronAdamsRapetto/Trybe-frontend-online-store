@@ -1,0 +1,54 @@
+.container-evaluation-submit {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.container-email-rating {
+  align-items: center;
+  display: flex;
+  width: 50%;
+}
+
+.container-email-rating input {
+  flex-grow: 1;
+  margin: 10px 10px 10px 0;
+  padding: 5px 0;
+}
+
+.container-email-rating i {
+  font-size: 24px;
+}
+
+.container-email-rating i:hover {
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.container-evaluation-submit textarea {
+  flex-grow: 1;
+  height: 100px;
+  margin: 10px 10px 10px 0;
+  width: 50%;
+}
+
+.container-evaluation-submit button {
+  align-self: flex-start;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 16px;
+  padding: 12px 38px;
+}
+
+.container-evaluation-submit button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.rating-selected {
+  color: blue;
+  font-weight: 900;
+}
+
