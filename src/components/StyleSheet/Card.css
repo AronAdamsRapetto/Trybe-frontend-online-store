@@ -8,10 +8,15 @@
   border: 1px solid black;
   border-radius: 15px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  height: 440px;
+  height: 460px;
   margin: 10px;
   padding: 10px;
   width: 290px;
+}
+
+.product-container h4 {
+  align-self: center;
+  margin: 0;
 }
 
 .product-container button {
