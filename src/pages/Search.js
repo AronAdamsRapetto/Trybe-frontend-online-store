@@ -142,6 +142,7 @@ render() {
             name="typePrice"
             value={ typePrice }
             onChange={ this.handlePrice }
+            className="price-filter"
           >
             <option value="Recente">Recente</option>
             <option value="Mais caro">Mais caro</option>
